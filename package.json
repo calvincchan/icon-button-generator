@@ -1,0 +1,10 @@
+{
+  "name": "icon-button-generator",
+  "version": "1.0.0",
+  "description": "Generate square icon button",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.32.1"
+  }
+}

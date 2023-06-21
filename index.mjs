@@ -31,11 +31,10 @@ async function generateSquareImage() {
   return image;
 }
 
-
-
-export const lambdaHandler = async (event, context) => {
+export const handler = async (event, context) => {
   try {
-    const buffer = await generateSquareImage();
+    const params = event.queryStringParameters();
+    const buffer = await generateSquareImage(params);
     return {
       'statusCode': 200,
       'headers': {
