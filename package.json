@@ -4,7 +4,13 @@
   "description": "Generate square icon button",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "node build.js"
+  },
   "dependencies": {
     "sharp": "^0.32.1"
+  },
+  "devDependencies": {
+    "@svg-icons/fa-regular": "^1.87.0"
   }
 }
