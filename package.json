@@ -5,7 +5,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "build-all.sh"
+    "clean": "rm -rf assets",
+    "build": "mkdir assets && node build.js"
   },
   "dependencies": {
     "sharp": "^0.32.1"
