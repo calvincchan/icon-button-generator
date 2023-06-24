@@ -35,7 +35,7 @@ async function generateIconImage(params) {
   const {
     size = 400,
     package: packageName = "fa-regular",
-    key: iconName = "star",
+    icon: iconName = "star",
     zoom = 1,
     background = "FF6600",
     color = "00000077",
@@ -101,7 +101,7 @@ if (process.env.TERM_PROGRAM === "vscode") {
     await handler({
       queryStringParameters: {
         package: "fa-regular",
-        key: "face-sad-cry",
+        icon: "face-sad-cry",
         size: "300",
         zoom: "0.8",
         background: "FF6600",
