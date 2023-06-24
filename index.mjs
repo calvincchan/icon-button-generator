@@ -23,11 +23,10 @@ function generateSvg(iconMap, iconName, size, zoom, background, color) {
     "<svg ",
     `<svg width="${svgImageSize}" height="${svgImageSize}" x="${svgImageOffset}" y="${svgImageOffset}" `
   );
-  const innerSvg3 = innerSvg2.replaceAll("currentColor", `#${color}`);
   return `<?xml version="1.0" encoding="utf-8"?>
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="${size}" width="${size}">
   <rect fill="#${background}" height="100%" width="100%" />
-  ${innerSvg3}
+  <g color="#${color}">${innerSvg2}</g>
   </svg>`;
 }
 
@@ -100,12 +99,12 @@ if (process.env.TERM_PROGRAM === "vscode") {
   console.log(
     await handler({
       queryStringParameters: {
-        package: "fa-regular",
-        icon: "face-sad-cry",
+        package: "feather",
+        icon: "aperture",
         size: "300",
-        zoom: "0.8",
+        zoom: "0.5",
         background: "FF6600",
-        color: "00000077",
+        color: "000000",
       },
     })
   );
