@@ -7,6 +7,21 @@
   resolved "https://registry.yarnpkg.com/@svg-icons/fa-regular/-/fa-regular-1.87.0.tgz#f89a845292e32de43356944629db7c02669acec0"
   integrity sha512-GXDM3k/TUNvjkNjtbNY32BlwVwWHe/yAcNbHUy7ey1WocdbfAdEumBNAvpRmWvxXRNXZBTkrygrc6MKbSYm9jQ==
 
+"@svg-icons/feather@^1.87.0":
+  version "1.87.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/feather/-/feather-1.87.0.tgz#ce44ba70162e0ed6c2ca656a6045a63227c1ca0e"
+  integrity sha512-YWPAiUU2y+QueqA3Uonm6n9bm6x3YfLJLNtsnkI1THxY/VkmWpOVpO8BkTMYBfKiXFJe6cFxkKMboYac8z51uQ==
+
+"@svg-icons/fluentui-system-regular@^1.87.0":
+  version "1.87.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/fluentui-system-regular/-/fluentui-system-regular-1.87.0.tgz#2f5a548c022c3274f7f38691aed3ae37bf8a0490"
+  integrity sha512-7uzTppjHNcm8QHGJ461Bp4VbX4kmHUgQhCvsMmdRI/UF2ZUkeFo7Sd3dRM8C9l8YBM8VMyYCPd0F0HZA/d5nqw==
+
+"@svg-icons/material-outlined@^1.87.0":
+  version "1.87.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/material-outlined/-/material-outlined-1.87.0.tgz#63143d067893c0abcdeef10133fdccde3313519a"
+  integrity sha512-lvgyhrZdOpLqc0WqnjnPb/w7OxJvPmVH09dzoQ34zwPnX6NOse8uEpUONEWxlP1mBsICgIuDiSsgOaiF489y4A==
+
 base64-js@^1.3.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"

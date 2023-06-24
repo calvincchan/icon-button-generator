@@ -5,12 +5,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "node build.js"
+    "build": "build-all.sh"
   },
   "dependencies": {
     "sharp": "^0.32.1"
   },
   "devDependencies": {
-    "@svg-icons/fa-regular": "^1.87.0"
+    "@svg-icons/fa-regular": "^1.87.0",
+    "@svg-icons/feather": "^1.87.0",
+    "@svg-icons/fluentui-system-regular": "^1.87.0",
+    "@svg-icons/material-outlined": "^1.87.0"
   }
 }
