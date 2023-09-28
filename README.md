@@ -1,6 +1,6 @@
 # Icon Button Generator
 
-This is a AWS Lambda function for generating square PNG file from some popular open source icon packages including Feather, Font Awesome, FluentUI, and Material.
+This is a AWS Lambda function for generating square PNG file from some popular open source icon packages such as Feather, Font Awesome, FluentUI, and Material.
 
 ## Getting Started
 
