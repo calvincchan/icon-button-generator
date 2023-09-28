@@ -19,34 +19,34 @@ https://somewhere.on.aws?package=material-outlined&icon=star to get a PNG file o
 
 The following are a list of all parameters:
 
-### `package`
+#### `package`
 
 Name of the icon package. Default packages:
 
-- fa-regular
-- feather
-- fluentui-system-regular
-- material-outlined
+- `fa-regular`
+- `feather`
+- `fluentui-system-regular`
+- `material-outlined`
 
-To add other icon packages, see **Customize Icon Packages** section below.
+To add other icon packages, see [Customize Icon Packages](#customize-icon-packages) section below.
 
-### `icon`
+#### `icon`
 
 Name of the icon.
 
-### `size`
+#### `size`
 
 Number of pixel for the width and height. Default 400.
 
-### `zoom`
+#### `zoom`
 
 Default is 1. To make the icon smaller, you can use decimal numbers such as 0.8 or 0.5.
 
-### `background`
+#### `background`
 
 Background color in hex color code (RRGGBB) with optional alpha channel (RRGGBBAA).
 
-### `color`
+#### `color`
 
 Foreground color in hex color code (RRGGBB) with optional alpha channel (RRGGBBAA).
 
