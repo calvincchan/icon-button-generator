@@ -40,7 +40,7 @@ async function generateIconImage(params) {
     color = "00000077",
   } = params;
 
-  // Assert the icon package and icon name are valid
+  /** Assert the icon package and icon name are valid */
   assert(
     fontPackages.has(packageName),
     `Unknown font package "${packageName}"`
@@ -51,41 +51,65 @@ async function generateIconImage(params) {
     `Icon name "${iconName}" not found in "${packageName}"`
   );
 
-  // Fetch the icon from the sprite
+  /** Fetch the icon from the sprite */
   const svg = generateSvg(IconMap, iconName, size, zoom, background, color);
   return await sharp(Buffer.from(svg)).png().toBuffer();
 }
 
+/** Generate a full map of all icon packages and the correponding icon names. */
+async function generateFullMap() {
+  const packages = [...fontPackages.keys()];
+  const result = [];
+  for (const packageName of packages) {
+    const { IconMap } = await import(`./assets/${packageName}.mjs`);
+    result.push({
+      package: packageName,
+      icons: [...IconMap.keys()],
+    });
+  }
+  return result;
+}
+
 export const handler = async (event, context) => {
   try {
-    const params = event?.queryStringParameters || {};
-    if (params.size) {
-      params.size = parseInt(params.size) || 400;
-    }
-    if (params.zoom) {
-      params.zoom = parseFloat(params.zoom) || 1;
-      if (params.zoom > 1) {
-        params.zoom = 1.0;
-      } else if (params.zoom < 0.5) {
-        params.zoom = 0.5;
-      }
-    }
-    const buffer = await generateIconImage(params);
-
-    // save buffer to local file
-    if (process.env.TERM_PROGRAM === "vscode") {
-      const result = await sharp(buffer).toFile(`./output.png`);
-      return result;
-    } else {
+    const params = event?.queryStringParameters || { docMode: true };
+    if (params.docMode) {
       return {
         statusCode: 200,
         headers: {
-          "Content-Type": "image/jpeg",
-          "Content-Length": buffer.length.toString(),
+          "Content-Type": "application/json",
         },
-        body: buffer.toString("base64"),
-        isBase64Encoded: true,
+        body: JSON.stringify(await generateFullMap()),
       };
+    } else {
+      if (params.size) {
+        params.size = parseInt(params.size) || 400;
+      }
+      if (params.zoom) {
+        params.zoom = parseFloat(params.zoom) || 1;
+        if (params.zoom > 1) {
+          params.zoom = 1.0;
+        } else if (params.zoom < 0.5) {
+          params.zoom = 0.5;
+        }
+      }
+      const buffer = await generateIconImage(params);
+
+      // save buffer to local file
+      if (process.env.DEV === "yes") {
+        const result = await sharp(buffer).toFile(`./output.png`);
+        return result;
+      } else {
+        return {
+          statusCode: 200,
+          headers: {
+            "Content-Type": "image/jpeg",
+            "Content-Length": buffer.length.toString(),
+          },
+          body: buffer.toString("base64"),
+          isBase64Encoded: true,
+        };
+      }
     }
   } catch (err) {
     return {
@@ -95,17 +119,21 @@ export const handler = async (event, context) => {
   }
 };
 
-if (process.env.TERM_PROGRAM === "vscode") {
+if (process.env.DEV === "yes") {
   console.log(
-    await handler({
-      queryStringParameters: {
-        package: "feather",
-        icon: "aperture",
-        size: "300",
-        zoom: "0.5",
-        background: "FF6600",
-        color: "000000",
-      },
-    })
+    /** Test no params */
+    await handler({})
+
+    /** Test with params */
+    // await handler({
+    //   queryStringParameters: {
+    //     package: "feather",
+    //     icon: "aperture",
+    //     size: "300",
+    //     zoom: "0.5",
+    //     background: "FF6600",
+    //     color: "000000",
+    //   },
+    // })
   );
 }
