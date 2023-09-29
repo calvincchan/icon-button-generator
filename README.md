@@ -12,12 +12,15 @@ This is an AWS Lambda function for generating square PNG file from some popular 
 
 ## Usage
 
-For example, assuming you deployed the function to `https://somewhere.on.aws`.
+For example below, let's assume that you deployed the function to `https://somewhere.on.aws`.
 
 Invoke the function with a HTTP GET
 https://somewhere.on.aws?package=material-outlined&icon=star to get a PNG file of "material-outlined" package "star" icon.
 
-The following are a list of all parameters:
+Invoke the function with GET without any parameters will return a JSON of all loaded icon packages and icons.
+https://somewhere.on.aws
+
+The following are a list of all query string parameters:
 
 #### `package`
 
@@ -28,7 +31,7 @@ Name of the icon package. Default packages:
 - `fluentui-system-regular`
 - `material-outlined`
 
-To add other icon packages, see [Customize Icon Packages](#customize-icon-packages) section below.
+Note: to add other icon packages, see [Customize Icon Packages](#customize-icon-packages) section below.
 
 #### `icon`
 
