@@ -57,3 +57,7 @@ To add or remove icon packages:
 1. First `yarn add` to install them. Note that this program only accepts packages from [@svg-icons](https://www.npmjs.com/org/svg-icons).
 2. Add the package names to the array in `build.config.json`.
 3. Run `yarn build` then deploy to Lambda.
+
+## Local development
+
+Although you can use AWS official CLI to test this Lambda function, I find it easier to just run `index.mjs` directly from local terminal. To properly trigger the dev mode, use `yarn dev` or from `DEV=yes node index.mjs`.
